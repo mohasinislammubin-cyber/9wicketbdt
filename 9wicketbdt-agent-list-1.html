@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b0d">
+<title>9WICKETBDT | Agent Directory</title>
+<style>
+:root{--bg:#080a0c;--panel:#111519;--panel2:#151a1f;--gold:#e8bd62;--gold2:#ffe5a0;--muted:#a7afb8;--line:rgba(232,189,98,.22);--green:#39d98a}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% -15%,#2a2416 0,transparent 43%),var(--bg);color:#f7f4ec;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,92%);margin:auto}
+header{padding:24px 0 18px;border-bottom:1px solid var(--line);background:rgba(8,10,12,.82)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.crest{width:48px;height:48px;border-radius:14px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold2);font-size:25px;background:linear-gradient(145deg,#282114,#0b0d0f);box-shadow:0 0 24px #e8bd6214}
+.brand h1{margin:0;font-size:clamp(20px,4vw,29px);letter-spacing:1.6px;font-weight:900}
+.brand h1 span{color:var(--gold)}
+.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:3px;margin-top:4px}
+.tag{border:1px solid var(--line);border-radius:999px;padding:9px 12px;color:var(--gold2);font-size:11px;letter-spacing:1px;white-space:nowrap}
+.hero{text-align:center;padding:42px 0 28px}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:4px;font-weight:800}
+.hero h2{font-size:clamp(28px,5.5vw,48px);line-height:1.1;margin:13px 0 12px}
+.hero h2 span{color:var(--gold)}
+.hero p{color:var(--muted);max-width:590px;margin:0 auto;line-height:1.65;font-size:14px}
+.stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:23px}
+.stat{border:1px solid var(--line);background:#111416;padding:10px 16px;border-radius:12px;font-size:12px;color:var(--muted)}
+.stat strong{color:var(--gold2);font-size:15px;margin-right:5px}
+.tools{display:flex;gap:12px;align-items:center;margin:18px 0 22px;flex-wrap:wrap}
+.search{flex:1;min-width:220px;position:relative}
+.search input{width:100%;padding:14px 16px 14px 43px;border:1px solid var(--line);border-radius:13px;background:#111519;color:#fff;font-size:14px;outline:none}
+.search input:focus{border-color:var(--gold)}
+.search:before{content:"⌕";position:absolute;left:16px;top:7px;color:var(--gold);font-size:27px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{border:1px solid var(--line);border-radius:10px;background:#111519;color:#c9c2b2;padding:11px 13px;cursor:pointer;font-size:12px}
+.filter.active,.filter:hover{background:linear-gradient(135deg,#e8bd62,#c89538);color:#17120a;border-color:transparent;font-weight:800}
+.section-title{display:flex;align-items:center;gap:10px;margin:30px 0 15px;font-size:17px}
+.section-title:after{content:"";height:1px;flex:1;background:var(--line)}
+.section-title span{color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{background:linear-gradient(145deg,#171c20,#0e1114);border:1px solid var(--line);border-radius:17px;padding:19px;position:relative;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:#e8bd6280;box-shadow:0 12px 30px #0005}
+.card:before{content:"";position:absolute;width:100px;height:100px;right:-50px;top:-50px;background:#e8bd620c;border-radius:50%}
+.cardhead{display:flex;align-items:center;gap:12px;margin-bottom:17px}
+.avatar{width:49px;height:49px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#44351a,#17130c);border:1px solid #e8bd6266;color:var(--gold2);font-size:22px;font-weight:900}
+.person{min-width:0;flex:1}
+.person h3{margin:0 0 5px;font-size:16px;overflow-wrap:anywhere}
+.person p{margin:0;color:var(--muted);font-size:11px;letter-spacing:.5px}
+.badge{font-size:9px;color:var(--green);border:1px solid #39d98a45;background:#39d98a0c;border-radius:99px;padding:5px 7px;white-space:nowrap}
+.badge.gold{color:var(--gold2);border-color:var(--line);background:#e8bd620c}
+.info{padding:11px 0;border-top:1px solid #ffffff0d}
+.label{display:block;color:#8f98a1;font-size:10px;text-transform:uppercase;letter-spacing:1.3px;margin-bottom:6px}
+.value{font-size:13px;overflow-wrap:anywhere}
+.contact{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.contact a{color:var(--gold2);font-weight:700}
+.contact a:hover{text-decoration:underline}
+.action{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:#173b2c;color:#a9f2cb!important;border:1px solid #39d98a3d;border-radius:9px;padding:8px 10px;font-size:11px;white-space:nowrap}
+.action.goldbtn{background:#2c2414;color:var(--gold2)!important;border-color:var(--line)}
+.empty{display:none;text-align:center;color:var(--muted);padding:32px;border:1px dashed var(--line);border-radius:14px}
+.note{margin:24px 0;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:#e8bd6208;color:#a7afb8;font-size:11px;line-height:1.6}
+footer{margin-top:40px;padding:22px 0;border-top:1px solid var(--line);color:#858d95;font-size:11px;text-align:center}
+footer strong{color:var(--gold)}
+.hidden{display:none!important}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tag{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero{padding-top:32px}.tools{align-items:stretch}.filters{display:grid;grid-template-columns:repeat(2,1fr)}.filter{padding:12px 8px}.card{padding:17px}.brand small{letter-spacing:2px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap top">
+    <a class="brand" href="#" aria-label="9WICKETBDT home">
+      <div class="crest">♛</div>
+      <div><h1>9WICKET<span>BDT</span></h1><small>OFFICIAL AGENT DIRECTORY</small></div>
+    </a>
+    <div class="tag">✦ PREMIUM SUPPORT NETWORK</div>
+  </div>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">WELCOME TO 9WICKETBDT</div>
+    <h2>YOUR <span>AGENT</span> DIRECTORY</h2>
+    <p>Find the right team member and reach out with one tap. Browse by role or search by name, ID, or phone number.</p>
+    <div class="stats">
+      <div class="stat"><strong>05</strong> Departments</div>
+      <div class="stat"><strong>24/7</strong> Directory Access</div>
+      <div class="stat"><strong>1-TAP</strong> Contact</div>
+    </div>
+  </section>
+
+  <div class="tools">
+    <div class="search"><input id="search" type="search" placeholder="Search name, ID or phone..." aria-label="Search agents"></div>
+    <div class="filters" aria-label="Filter by role">
+      <button class="filter active" data-filter="all">All Members</button>
+      <button class="filter" data-filter="Admin">Admin</button>
+      <button class="filter" data-filter="Sub Admin">Sub Admin</button>
+      <button class="filter" data-filter="Super Agent">Super Agent</button>
+      <button class="filter" data-filter="Master Agent">Master Agent</button>
+      <button class="filter" data-filter="Customer Care">Customer Care</button>
+    </div>
+  </div>
+
+  <div class="section-title"><span>✦</span> ADMIN & CUSTOMER CARE</div>
+  <section class="grid" id="mainCards">
+    <article class="card" data-role="Admin" data-search="emran khan adm001 01949041825 admin">
+      <div class="cardhead">
+        <div class="avatar">EK</div>
+        <div class="person"><h3>Emran Khan</h3><p>ADMIN · ADM001</p></div>
+        <span class="badge">● ADMIN</span>
+      </div>
+      <div class="info"><span class="label">Role</span><div class="value">Website Administrator</div></div>
+      <div class="info"><span class="label">WhatsApp</span><div class="contact"><a href="https://wa.me/8801949041825" target="_blank" rel="noopener">01949041825</a><a class="action" href="https://wa.me/8801949041825" target="_blank" rel="noopener">WhatsApp ↗</a></div></div>
+      <div class="info"><span class="label">Telegram</span><div class="value">Not available</div></div>
+    </article>
+    <article class="card" data-role="Customer Care" data-search="customer care support care 01924117266 cc001">
+      <div class="cardhead">
+        <div class="avatar">CC</div>
+        <div class="person"><h3>Customer Care</h3><p>SUPPORT · CC001</p></div>
+        <span class="badge">● SUPPORT</span>
+      </div>
+      <div class="info"><span class="label">Role</span><div class="value">Customer Support Team</div></div>
+      <div class="info"><span class="label">WhatsApp</span><div class="contact"><a href="https://wa.me/8801924117266" target="_blank" rel="noopener">01924117266</a><a class="action" href="https://wa.me/8801924117266" target="_blank" rel="noopener">Chat now ↗</a></div></div>
+      <div class="info"><span class="label">Telegram</span><div class="value">Not available</div></div>
+    </article>
+  </section>
+
+  <div class="section-title"><span>✦</span> AGENT NETWORK</div>
+  <section class="grid" id="agentCards">
+    <article class="card" data-role="Sub Admin" data-search="sub admin alex morgan sub001 +1 202 555 0101">
+      <div class="cardhead"><div class="avatar">SA</div><div class="person"><h3>Alex Morgan</h3><p>SUB ADMIN · SUB001</p></div><span class="badge gold">SUB ADMIN</span></div>
+      <div class="info"><span class="label">Role</span><div class="value">Sub Admin</div></div>
+      <div class="info"><span class="label">International Contact</span><div class="contact"><a href="https://wa.me/12025550101" target="_blank" rel="noopener">+1 202-555-0101</a><a class="action" href="https://wa.me/12025550101" target="_blank" rel="noopener">WhatsApp ↗</a></div></div>
+      <div class="info"><span class="label">Telegram</span><div class="value">Not provided</div></div>
+    </article>
+    <article class="card" data-role="Super Agent" data-search="super agent jordan lee sup001 +1 202 555 0102">
+      <div class="cardhead"><div class="avatar">JL</div><div class="person"><h3>Jordan Lee</h3><p>SUPER AGENT · SUP001</p></div><span class="badge gold">SUPER</span></div>
+      <div class="info"><span class="label">Role</span><div class="value">Super Agent</div></div>
+      <div class="info"><span class="label">International Contact</span><div class="contact"><a href="https://wa.me/12025550102" target="_blank" rel="noopener">+1 202-555-0102</a><a class="action" href="https://wa.me/12025550102" target="_blank" rel="noopener">WhatsApp ↗</a></div></div>
+      <div class="info"><span class="label">Telegram</span><div class="value">Not provided</div></div>
+    </article>
+    <article class="card" data-role="Master Agent" data-search="master agent taylor reed mas001 +1 202 555 0103">
+      <div class="cardhead"><div class="avatar">TR</div><div class="person"><h3>Taylor Reed</h3><p>MASTER AGENT · MAS001</p></div><span class="badge gold">MASTER</span></div>
+      <div class="info"><span class="label">Role</span><div class="value">Master Agent</div></div>
+      <div class="info"><span class="label">International Contact</span><div class="contact"><a href="https://wa.me/12025550103" target="_blank" rel="noopener">+1 202-555-0103</a><a class="action" href="https://wa.me/12025550103" target="_blank" rel="noopener">WhatsApp ↗</a></div></div>
+      <div class="info"><span class="label">Telegram</span><div class="value">Not provided</div></div>
+    </article>
+  </section>
+  <div id="empty" class="empty">No matching agents found. Try another search.</div>
+  <div class="note">Contact note: Admin and Customer Care numbers are the details supplied for this site. The international numbers shown for the other roles are fictional reserved-format examples and are not real agent contacts; their WhatsApp links may not reach anyone.</div>
+</main>
+<footer><div class="wrap"><strong>9WICKETBDT</strong> · Agent Directory <br><br>© 2026 9WICKETBDT. All rights reserved.</div></footer>
+<script>
+const search = document.getElementById('search');
+const buttons = [...document.querySelectorAll('.filter')];
+const cards = [...document.querySelectorAll('.card')];
+const empty = document.getElementById('empty');
+let activeFilter = 'all';
+function applyFilters(){
+  const q = search.value.trim().toLowerCase();
+  let visible = 0;
+  cards.forEach(card=>{
+    const role = card.dataset.role;
+    const text = (card.dataset.search + ' ' + card.innerText).toLowerCase();
+    const matchesRole = activeFilter === 'all' || role === activeFilter;
+    const matchesText = !q || text.includes(q);
+    const show = matchesRole && matchesText;
+    card.classList.toggle('hidden', !show);
+    if(show) visible++;
+  });
+  empty.style.display = visible ? 'none' : 'block';
+}
+buttons.forEach(btn=>btn.addEventListener('click',()=>{
+  buttons.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter=btn.dataset.filter;
+  applyFilters();
+}));
+search.addEventListener('input',applyFilters);
+</script>
+</body>
+</html>
